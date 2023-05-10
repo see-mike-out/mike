@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>My Town + Our Diversity - Mike Project</title>
+  <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" media="screen and (min-width:1250px)" type="text/css" href="./css/table.css" />
+  <link rel="stylesheet" media="screen and (max-width:1249px)" type="text/css" href="./css/table.m.css" />
+</head>
+
+<body onload="makeTopButton()">
+  <div id="wrap">
+    <div id="current-area"></div>
+    <div id="header-wrap">
+      <div id="mike-project">MIKE PROJECT</div>
+      <div id="project-name"><a href="./index.html">MY TOWN + OUR DIVERSITY</a></div>
+      <div id="documentation">
+        <a href="./index.html">소개</a>
+        <a href="./browse.html">찾아보기</a>
+        <a href="./map.html">지도</a>
+        <a href="./table.html">자료</a>
+      </div>
+    </div>
+    <div id="content-wrap">
+      <div id="panel-wrap" class="col-md-12 col-xs-12">
+        <h4><i class="fa fa-bars"></i>&nbsp;&nbsp;선택해서 보기</h4>
+        <div id="panel-content" class="content-item"></div>
+      </div>
+      <div id="table-wrap" class="col-md-12 col-xs-12">
+        <h4><i class="fa fa-table"></i>&nbsp;&nbsp;자료 표</h4>
+        <div id="table-content" class="content-item"></div>
+      </div>
+    </div>
+    <div id="copy" class="col-md-12 col-xs-12">
+      <h5>&copy; 2017 MIKE PROJECT</h5>
+      <p></p>
+      <p>화면이 제대로 보이지 않는 경우 새로고침해주세요.</p>
+      <p></p>
+      <p>Work of a Feminist</p>
+    </div>
+  </div>
+
+  <script src="./use_data/data_sheet.json"></script>
+  <script src="./use_data/presets.json"></script>
+  <script src="./use_data/region_tree.json"></script>
+  <script src="./js/table.js"></script>
+  <!-- common -->
+  <script src="./js/utility.js"></script>
+  <script>
+    global();
+    makeTopButton();
+  </script>
+</body>
+
+</html>

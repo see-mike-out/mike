@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>What Percent Male are You? by Mike Project</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./wpmy.css" />
+  <link rel="stylesheet" href="./grid.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="row">
+        <div id="go_to_root" class="l12 m12 s12">
+          <a href="/">Mike Project</a>
+        </div>
+        <div id="main_logo" class="l12 m12 s12">
+          <a href="./index.html">What Percent Male are You?</a>
+        </div>
+        <div class="l12 m12 s12">
+          <div id="main_nav" class="en">
+            <a href="./tables.html?lang=en">Tables</a>
+            <a href="./graphs.html?lang=en">Graphs</a>
+            <a href="./bycountry.html?lang=en">By Country</a>
+            <a href="./download.html?lang=en">Download</a>
+            <a href="./index.html?lang=ko">한</a>
+          </div>
+          <div id="main_nav" class="ko">
+            <a href="./tables.html?lang=ko">표</a>
+            <a href="./graphs.html?lang=ko">그래프</a>
+            <a href="./bycountry.html?lang=ko">나라별</a>
+            <a href="./download.html?lang=ko">다운로드</a>
+            <a href="./index.html?lang=en">EN</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="row">
+      <div class="l3 m12 s12">
+        <div class="content-wrap">
+          <h1 class="en">Graphs</h1>
+          <h1 class="ko">그래프</h1>
+        </div>
+      </div>
+      <div class="l9 m12 s12">
+        <div class="content-wrap">
+          <div class="sublist_foldable" data-open="false">
+            <div class="folder" id="graph_list">
+              <span class="en">List of Graphs</span>
+              <span class="ko">그래프 목록</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="l12 m12 s12">
+        <div class="content-wrap graph-wrap">
+          <div id="graph_area"></div>
+          <div id="graph_tooltip" data-show="false">
+            <span class="name"></span>
+            <span class="value"></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script src="../language.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="/wpmy/js/wpmy_utility.js"></script>
+  <script src="/wpmy/js/graph_control.js"></script>
+  <script>
+    create_graph_list('#graph_list', '#graph_area', lang);
+    get_graph('#graph_area', "gini", lang);
+    $('.sublist_foldable')
+      .on('mouseover', function () { $(this).attr('data-open', 'true') })
+      .on('mouseout', function () { $(this).attr('data-open', 'false') });
+  </script>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="l12 m12 s12">&copy; 2017 Mike Project / Work of a Feminist.</div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

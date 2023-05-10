@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>How Much is My Labor? by Mike Project</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./hmde.css" />
+  <link rel="stylesheet" href="./grid.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="row">
+        <div id="go_to_root" class="l12 m12 s12">
+          <a href="/">Mike Project</a>
+        </div>
+        <div id="main_logo" class="l12 m12 s12">
+          <a href="./index.html">How Much is My Labor?</a>
+        </div>
+        <div class="l12 m12 s12">
+          <div id="main_nav" class="en">
+            <a href="./tables.html?lang=en">Tables</a>
+            <a href="./graphs.html?lang=en">Graphs</a>
+            <a href="./bycountry.html?lang=en">By Country</a>
+            <a href="./calculator.html?lang=en">Calculator</a>
+            <a href="./download.html?lang=en">Download</a>
+            <a href="./index.html?lang=ko">한</a>
+          </div>
+          <div id="main_nav" class="ko">
+            <a href="./tables.html?lang=ko">표</a>
+            <a href="./graphs.html?lang=ko">그래프</a>
+            <a href="./bycountry.html?lang=ko">나라별</a>
+            <a href="./calculator.html?lang=ko">계산기</a>
+            <a href="./download.html?lang=ko">다운로드</a>
+            <a href="./index.html?lang=en">EN</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="l12 m12 s12">
+        <div class="content-wrap">
+          <h1 class="en">Calculator</h1>
+          <h1 class="ko">계산기</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="l3 m6 s12">
+        <div class="content-wrap calculator-wrap">
+          <h3 class="en">Select a country.</h3>
+          <h3 class="ko">나라를 선택하세요.</h3>
+          <div class="sublist_foldable relative" data-open="false">
+            <div class="folder" id="country_list">
+              <span class="list_header en">
+                List of Countries
+              </span>
+              <span class="list_header ko">국가 목록</span>
+              <span class="en">List of Countries</span>
+              <span class="ko">국가 목록</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="l3 m6 s12">
+        <div class="content-wrap calculator-wrap" id="income-input" data-show="false">
+          <h3 class="en">Enter your income.</h3>
+          <h3 class="ko">수입을 입력하세요.</h3>
+          <div class="calculator-input-wrap">
+            <input type="number" class="calculator-input" id="calculator-income" />
+            <span id="currency"> USD</span>
+          </div>
+          <button onclick="calculate()" class="en">
+            Calculate
+          </button>
+          <button onclick="calculate()" class="ko">계산하기</button>
+        </div>
+      </div>
+
+      <div class="l6 m12 s12">
+        <div class="content-wrap calculator-wrap" id="calc-result" data-show="false">
+          <h3 class="en">Based on your income, the amount of your greenhouse gas emission is ... </h3>
+          <p class="helper en">You can change profession sector in the below select box.</p>
+          <h3 class="ko">수입에 기반한 당신의 온실가스 배출량은 ...</h3>
+          <p class="helper ko">아래 선택 박스에서 직업군을 변경할 수 있습니다.</p>
+          <div id="calc-result-sector">
+            <select id="calc-result-sector-selector" onchange="change_sector()">
+              <option value="tot" selected><span class="en">General</span><span class="ko">일반</span></option>
+              <option value="agr"><span class="en">Agriculture</span><span class="ko">농업</span></option>
+              <option value="mnf"><span class="en">Manufacturing & Construction</span><span class="ko">제조건축업</span>
+              </option>
+              <option value="eng"><span class="en">Energy</span><span class="ko">에너지산업</span></option>
+              <option value="tsp"><span class="en">Transport</span><span class="ko">수송</span></option>
+              <option value="etc"><span class="en">Others</span><span class="ko">비제조산업</span></option>
+            </select>
+          </div>
+          <h3 class="calc-equiv en">And it's equivalent to</h3>
+          <h3 class="calc-equiv ko">그리고 다음과 같은 양입니다.</h3>
+          <div id="calc-result">
+            <div id="calc-result-emit">
+              <div class="emoji">🌫</div>
+              <div class="title en">Emmissions</div>
+              <div class="title ko">배출량</div>
+              <div class="value"></div>
+              <div class="content"></div>
+            </div>
+            <div id="calc-result-driving">
+              <div class="emoji">🚗</div>
+              <div class="title en">Distance Driven</div>
+              <div class="title ko">운전 거리</div>
+              <div class="value"></div>
+              <div class="content"></div>
+            </div>
+            <div id="calc-result-bulb">
+              <div class="emoji">💡</div>
+              <div class="title en">Fluorescent Bulb</div>
+              <div class="title ko">형광등</div>
+              <div class="value"></div>
+              <div class="content"></div>
+              <p class="helper en">1 falsh indicates 1 day.</p>
+              <p class="helper ko">1번 깜빡임은 1일입니다.</p>
+            </div>
+          </div>
+          <p class="helper en">
+            Fuel Efficiency: 11.1km/l (28 mpg) (combined, TOYOTA Camry XLE 2.5-Liter/4-Cylinder/6-Speed-Automatic, <a
+              href="http://www.toyota.com/camry/features.html#!/mpg/2540" target="_blank">Source</a>). Flurescent Bulb:
+            5 Watt per hour. Specific calclation rates from US Energy Protection Agency (<a
+              href="http://www.epa.gov/cleanenergy/energy-resources/refs.html" target="_blank">Source</a>)
+          </p>
+          <p class="helper ko">
+            연비: 11.1 km/l(복합, 도요타 캠리 XLE 2.5CC/4기관/6단자동변속, <a
+              href="http://www.toyota.com/camry/features.html#!/mpg/2540" target="_blank">출처</a>). 형광등: 시간 당 5 와트. 자세한
+            환산비율은 미국 에너지보호청 US Energy Protection Agency (<a
+              href="http://www.epa.gov/cleanenergy/energy-resources/refs.html" target="_blank">출처</a>)을 참고했습니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../language.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="./js/hmde_utility.js"></script>
+  <script src="./js/calculator_control.js"></script>
+  <script>
+    create_country_list('#country_list', lang);
+    $('.sublist_foldable')
+      .on('mouseover', function () {
+        $(this).attr('data-open', 'true');
+      })
+      .on('mouseout', function () {
+        $(this).attr('data-open', 'false');
+      });
+  </script>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="l12 m12 s12">&copy; 2016 Mike Project / Work of a Feminist.</div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
