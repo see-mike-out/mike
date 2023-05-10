@@ -106,9 +106,9 @@ let get_cmp = function(pl, ln) {
     let country_info_1 = ci1[0];
     let country_info_2 = ci2[0];
     let place = $(pl);
-    $.getJSON( "/hmde/data/hmde_data_" + ln + "_header.json" , function( c ){
+    $.getJSON( "data/hmde_data_" + ln + "_header.json" , function( c ){
         let header_info = c;
-        $.getJSON( "/hmde/data/hmde_data_" + ln + ".json" , function( data ){
+        $.getJSON( "data/hmde_data_" + ln + ".json" , function( data ){
           cmp_glb.header = header_info;
           cmp_glb.data = [
             data.filter(function(d) { return d.stAbbr == key1; })[0],

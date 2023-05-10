@@ -135,10 +135,10 @@ let get_plot = function(pl, key1, key2, ln) {
     let plot_info_1 = pi1[0];
     let plot_info_2 = pi2[0];
     let place = $(pl);
-    $.getJSON( "/hmml/data/hmml_data_" + ln + "_header.json" , function( p ){
+    $.getJSON( "data/hmml_data_" + ln + "_header.json" , function( p ){
         let header_1 = p.filter(function(d) { return plot_info_1.key == d.code });
         let header_2 = p.filter(function(d) { return plot_info_2.key == d.code });
-        $.getJSON( "/hmml/data/hmml_data_" + ln + ".json" , function( data ){
+        $.getJSON( "data/hmml_data_" + ln + ".json" , function( data ){
           plt_glb.header_x = header_1[0];
           plt_glb.header_y = header_2[0];
           plt_glb.ln = ln;

@@ -132,9 +132,9 @@ let get_graph = function(pl, key, ln) {
   if (gi.length >= 1) {
     let graph_info = gi[0];
     let place = $(pl);
-    $.getJSON( "./data/hmml_data_" + ln + "_header.json" , function( g ){
+    $.getJSON( "data/hmml_data_" + ln + "_header.json" , function( g ){
         let header = g.filter(function(d) { return graph_info.data_key.indexOf(d.code) >= 0 });
-        $.getJSON( "./data/hmml_data_" + ln + ".json" , function( data ){
+        $.getJSON( "data/hmml_data_" + ln + ".json" , function( data ){
           grp_glb.header = header[0];
           grp_glb.ln = ln;
           formatFunctions.time = function(v) { return seeMWDHM(v, ln)};

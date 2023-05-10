@@ -154,9 +154,9 @@ let get_table = function(pl, key, ln) {
   if (ti.length >= 1) {
     let table_info = ti[0];
     let place = $(pl);
-    $.getJSON( "/wpmy/data/wpmy_data_" + ln + "_header.json" , function( h ){
+    $.getJSON( "data/wpmy_data_" + ln + "_header.json" , function( h ){
         let header = h.filter(function(d) { return table_info.header.indexOf(d.code) >= 0 });
-        $.getJSON( "/wpmy/data/wpmy_data_" + ln + ".json" , function( data ){
+        $.getJSON( "data/wpmy_data_" + ln + ".json" , function( data ){
           tab_glb.order = table_info.header;
           tab_glb.header = header;
           tab_glb.data = data.sort(sort_function.country_name.a);

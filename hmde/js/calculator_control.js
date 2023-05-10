@@ -15,7 +15,7 @@ let units = {
 
 let create_country_list = function(pl, ln) {
   calc_glb.ln = ln;
-  $.getJSON( "/hmde/data/hmde_data_" + ln + ".json" , function( data ){ 
+  $.getJSON( "data/hmde_data_" + ln + ".json" , function( data ){ 
     let place = $(pl);
     for(let i = 0; i < data.length; i++) {
       let cell = $('<span>').text(data[i].stName).click(function() { set_country(this, data[i]) });
@@ -111,15 +111,15 @@ let change_sector = function() {
   let dots_pos = 0
   
   for (let i = 0; i < dots_count.d100; i++) {
-    dots.append('image').attr('xlink:href', '/hmde/img/dots_100.png').attr('width', 59).attr('height', 60).attr('x', 0).attr('y', dots_pos);
+    dots.append('image').attr('xlink:href', 'img/dots_100.png').attr('width', 59).attr('height', 60).attr('x', 0).attr('y', dots_pos);
     dots_pos += 60;
   }
   for (let i = 0; i < dots_count.d50; i++) {
-    dots.append('image').attr('xlink:href', '/hmde/img/dots_50.png').attr('width', 59).attr('height', 30).attr('x', 0).attr('y', dots_pos);
+    dots.append('image').attr('xlink:href', 'img/dots_50.png').attr('width', 59).attr('height', 30).attr('x', 0).attr('y', dots_pos);
     dots_pos += 30;
   }
   for (let i = 0; i < dots_count.d10; i++) {
-    dots.append('image').attr('xlink:href', '/hmde/img/dots_10.png').attr('width', 59).attr('height', 6).attr('x', 0).attr('y', dots_pos);
+    dots.append('image').attr('xlink:href', 'img/dots_10.png').attr('width', 59).attr('height', 6).attr('x', 0).attr('y', dots_pos);
     dots_pos += 6;
   }
   

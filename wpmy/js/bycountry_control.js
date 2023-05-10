@@ -24,7 +24,7 @@ let text_shadow = "-2px -2px 0px #ffffff, -2px -1px 0px #ffffff, -2px 0px 0px #f
 
 let create_country_list = function(pl, pl2, ln) {
   let place = $(pl);
-  $.getJSON( "/wpmy/data/wpmy_data_" + ln + ".json" , function( data ){
+  $.getJSON( "data/wpmy_data_" + ln + ".json" , function( data ){
     let country_list = [];
     for (let i = 0; i < data.length; i++) {
       country_list.push({
@@ -60,7 +60,7 @@ let get_country_view = function(pl, key, ln) {
   cmp_glb.selected = key;
   $("span#list-"+key).attr('data-selected', 'true');
   
-  $.getJSON( "/wpmy/data/wpmy_data_" + ln + ".json" , function( data ){
+  $.getJSON( "data/wpmy_data_" + ln + ".json" , function( data ){
     
     let country = data.filter( function (e) { return e.abbr == key })[0];
 		cmp_glb.country = country;
